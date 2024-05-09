@@ -6,18 +6,17 @@ import { addContacts } from "../../redux/contactsSlice"
 import { useDispatch } from "react-redux"
 
 export default function ContactForm() {
+  const dispatch = useDispatch();
   const textId = useId()
   const telId = useId()
-  const dispatch = useDispatch();
   
   const handleSubmit = (value, actions) => {
     dispatch(addContacts(value.name, value.number))
     actions.resetForm()
     
-  }
+  };
 
-  const initialValues = { name: "", number: "" }
-
+const initialValues = { name: "", number: "" }
 const contactSchema = Yup.object().shape({
   name: Yup.string()
     .min(3, "Min 3 chars!!!")
@@ -28,7 +27,6 @@ const contactSchema = Yup.object().shape({
     excludeEmptyString: false,
   }),
 });
-
 
   return (
     <Formik initialValues={initialValues}

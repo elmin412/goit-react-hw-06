@@ -4,18 +4,13 @@ import { useSelector } from "react-redux"
 import { selectContacts } from "../../redux/contactsSlice"
 import { selectNameFilter } from "../../redux/filtersSlice"
 
-
 export default function ContactList() {
   const contacts = useSelector(selectContacts);
   const valueFilter = useSelector(selectNameFilter);
 
-  console.log(contacts)
-
-  const filterContacts = contacts.items.filter((contact) => 
-    contact.name.toLowerCase().includes(valueFilter.toLowerCase())
+  const filterContacts = contacts.items.filter(contact =>
+    contact.name.toLowerCase().includes(valueFilter.toLowerCase() )
   )
-
-
 
   return (
     <ul className={style.tottalList}>

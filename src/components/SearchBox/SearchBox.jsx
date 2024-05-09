@@ -5,10 +5,7 @@ import style from "./SearchBox.module.css"
 
 export default function SearchBox() {
     const dispatch = useDispatch();
-
     const filter = useSelector(selectNameFilter);
-
-
     const handleInput = (e) => {
         dispatch(setStatusFilter(e.target.value))
     }
